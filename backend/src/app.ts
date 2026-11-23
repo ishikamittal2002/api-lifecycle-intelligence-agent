@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { prisma } from './config/db.js';
 import scanRoutes from './routes/scanRoutes.js';
+import usageRoutes from './routes/usageRoutes.js';
 
 const app = express();
 
@@ -27,5 +28,6 @@ app.get('/health', async (_req: Request, res: Response) => {
 });
 
 app.use('/api', scanRoutes);
+app.use('/api', usageRoutes);
 
 export default app;
